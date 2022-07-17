@@ -1,6 +1,6 @@
 import csv
 
-from reviews.models import MyUser, Title, Category, Genre, Review, Comment
+from reviews.models import Category, Comment, Genre, MyUser, Review, Title
 
 
 def create_users():

@@ -1,9 +1,12 @@
+from api import permissions, serializers
+from api.filters import TitleFilter
+from api.mixins import CreateDestroyListViewSet
+from core.key_generator import generate_alphanum_random_string
 from django.core.mail import send_mail
+from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-from django.http import Http404
-
-from rest_framework import status, viewsets, filters
+from rest_framework import filters, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import (
     AllowAny, IsAuthenticated, IsAuthenticatedOrReadOnly,
@@ -11,12 +14,7 @@ from rest_framework.permissions import (
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
-
-from reviews.models import MyUser, Review, Title, Category, Genre
-from api import permissions, serializers
-from api.mixins import CreateDestroyListViewSet
-from api.filters import TitleFilter
-from core.key_generator import generate_alphanum_random_string
+from reviews.models import Category, Genre, MyUser, Review, Title
 
 
 class SignUpView(APIView):

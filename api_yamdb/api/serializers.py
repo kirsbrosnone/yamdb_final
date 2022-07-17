@@ -1,8 +1,6 @@
-from rest_framework import exceptions, serializers
-
 from django.db.models import Avg
-
-from reviews.models import Comment, MyUser, Review, Category, Genre, Title
+from rest_framework import exceptions, serializers
+from reviews.models import Category, Comment, Genre, MyUser, Review, Title
 
 
 class SignUpSerializer(serializers.ModelSerializer):

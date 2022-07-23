@@ -5,7 +5,7 @@ from reviews.models import Category, Comment, Genre, MyUser, Review, Title
 
 def create_users():
     """Создание dummy data для пользователей из csv файла"""
-    with open('static/data/users.csv') as csvfile:
+    with open('staticfiles/data/users.csv') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             MyUser.objects.create(
@@ -18,7 +18,7 @@ def create_users():
 
 def create_genre():
     """Создание dummy data для жанров из csv файла"""
-    with open('static/data/genre.csv', encoding="utf8") as csvfile:
+    with open('staticfiles/data/genre.csv', encoding="utf8") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             Genre.objects.create(
@@ -30,7 +30,7 @@ def create_genre():
 
 def create_categories():
     """Создание dummy data для категорий из csv файла"""
-    with open('static/data/category.csv', encoding="utf8") as csvfile:
+    with open('staticfiles/data/category.csv', encoding="utf8") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             Category.objects.create(
@@ -42,7 +42,7 @@ def create_categories():
 
 def create_titles():
     """Создание dummy data для произведений из csv файла"""
-    with open('static/data/titles.csv', encoding="utf8") as csvfile:
+    with open('staticfiles/data/titles.csv', encoding="utf8") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             Title.objects.create(
@@ -55,7 +55,7 @@ def create_titles():
 
 def create_review():
     """Создание dummy data для отзывов из csv файла"""
-    with open('static/data/review.csv', encoding="utf8") as csvfile:
+    with open('staticfiles/data/review.csv', encoding="utf8") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             Review.objects.create(
@@ -70,7 +70,7 @@ def create_review():
 
 def create_comment():
     """Создание dummy data для комментариев из csv файла"""
-    with open('static/data/comments.csv', encoding="utf8") as csvfile:
+    with open('staticfiles/data/comments.csv', encoding="utf8") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             Comment.objects.create(

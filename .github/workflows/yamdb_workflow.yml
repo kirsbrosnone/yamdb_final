@@ -47,7 +47,7 @@ jobs:
         with:
           push: true
           context: ./api_yamdb/
-          tags: kirsbrosnone/api_yamdb:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -73,7 +73,6 @@ jobs:
           echo DB_PORT=${{ secrets.DB_PORT }} >> .env
           sudo docker-compose up -d
           sudo docker-compose exec -T web python manage.py migrate --noinput
-          sudo docker-compose exec web python manage.py create_dummy_data
           sudo docker-compose exec -T web python manage.py collectstatic --noinput
           sudo docker-compose exec -T web cp staticfiles/redoc.yaml static/
 
